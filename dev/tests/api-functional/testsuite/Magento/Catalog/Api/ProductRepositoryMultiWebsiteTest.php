@@ -117,7 +117,7 @@ class ProductRepositoryMultiWebsiteTest extends WebapiAbstract
      * @param string $sku
      * @return boolean
      */
-    private function deleteProduct(string $sku) : bool
+    private function deleteProduct(string $sku): bool
     {
         $serviceInfo = [
             'rest' => [
@@ -190,7 +190,7 @@ class ProductRepositoryMultiWebsiteTest extends WebapiAbstract
         $storeId = $store->load('fixture_third_store', 'code')->getId();
 
         $attributeCodeList = ['visibility', 'tax_class_id', 'status', 'short_description', 'description',
-                           'url_key', 'meta_title', 'meta_keywords', 'meta_description'];
+            'url_key', 'meta_title', 'meta_keywords', 'meta_description'];
         foreach ($attributeCodeList as $attributeCode) {
             $this->assertFalse($scopeOverriddenValue->containsValue(
                 ProductInterface::class,
@@ -214,7 +214,7 @@ class ProductRepositoryMultiWebsiteTest extends WebapiAbstract
         );
         $sku = 'api_test_update_product';
         $store = $this->objectManager->get(Store::class);
-        $storeId = (int) $store->load('fixture_third_store', 'code')->getId();
+        $storeId = (int)$store->load('fixture_third_store', 'code')->getId();
         $this->updateAttribute('varchar_attribute', ['is_global' => ScopedAttributeInterface::SCOPE_STORE]);
         $this->updateAttribute('text_attribute', ['is_global' => ScopedAttributeInterface::SCOPE_STORE]);
         $request1 = [
@@ -341,7 +341,7 @@ class ProductRepositoryMultiWebsiteTest extends WebapiAbstract
         DataFixture(StoreGroupFixture::class, ['website_id' => '$website2.id$'], 'store_group2'),
         DataFixture(StoreFixture::class, ['store_group_id' => '$store_group2.id$'], 'store2'),
         DataFixture(StoreFixture::class, ['store_group_id' => '$store_group2.id$'], 'store3'),
-        DataFixture(ProductFixture::class, ['website_ids' => [1, '$website2.id$' ]], as: 'product'),
+        DataFixture(ProductFixture::class, ['website_ids' => [1, '$website2.id$']], as: 'product'),
     ]
     public function testUpdatePrice(): void
     {
@@ -391,7 +391,7 @@ class ProductRepositoryMultiWebsiteTest extends WebapiAbstract
         $sku = 'simple';
         $name = 'Product Simple edited';
         $store = $this->objectManager->get(Store::class);
-        $storeId = (int) $store->load('fixture_third_store', 'code')->getId();
+        $storeId = (int)$store->load('fixture_third_store', 'code')->getId();
         /** @var ProductRepositoryInterface $productRepository */
         $productRepository = $this->objectManager->get(ProductRepositoryInterface::class);
         $product = $productRepository->get($sku);
@@ -447,7 +447,7 @@ class ProductRepositoryMultiWebsiteTest extends WebapiAbstract
                 'url_key' => false,
             ],
             $product,
-            (int) $defaultStore->getId()
+            (int)$defaultStore->getId()
         );
 
         // Change the second product name with a new name in default store view
@@ -469,7 +469,7 @@ class ProductRepositoryMultiWebsiteTest extends WebapiAbstract
                 'url_key' => false,
             ],
             $product,
-            (int) $defaultStore->getId()
+            (int)$defaultStore->getId()
         );
     }
 

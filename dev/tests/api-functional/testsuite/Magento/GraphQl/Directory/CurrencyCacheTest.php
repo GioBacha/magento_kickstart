@@ -128,7 +128,7 @@ class CurrencyCacheTest extends GraphQLPageCacheAbstract
         $testStoreResponseResult = $testStoreResponse['body']['currency'];
         $this->assertEquals('USD', $testStoreResponseResult['base_currency_code']);
         $this->assertEquals('CNY', $testStoreResponseResult['default_display_currency_code']);
-        $this->assertEquals(['CNY','USD'], $testStoreResponseResult['available_currency_codes']);
+        $this->assertEquals(['CNY', 'USD'], $testStoreResponseResult['available_currency_codes']);
         // Verify we obtain a cache HIT at the 2nd time
         $testStoreResponseHit = $this->assertCacheHitAndReturnResponse(
             $query,
@@ -141,7 +141,7 @@ class CurrencyCacheTest extends GraphQLPageCacheAbstract
         $testStoreResponseHitResult = $testStoreResponse['body']['currency'];
         $this->assertEquals('USD', $testStoreResponseHitResult['base_currency_code']);
         $this->assertEquals('CNY', $testStoreResponseHitResult['default_display_currency_code']);
-        $this->assertEquals(['CNY','USD'], $testStoreResponseHitResult['available_currency_codes']);
+        $this->assertEquals(['CNY', 'USD'], $testStoreResponseHitResult['available_currency_codes']);
     }
 
     /**
@@ -215,7 +215,7 @@ class CurrencyCacheTest extends GraphQLPageCacheAbstract
         );
         $this->assertArrayHasKey('currency', $secondStoreResponseMiss['body']);
         $secondStoreResponseMissResult = $secondStoreResponseMiss['body']['currency'];
-        $this->assertEquals(['CNY','USD'], $secondStoreResponseMissResult['available_currency_codes']);
+        $this->assertEquals(['CNY', 'USD'], $secondStoreResponseMissResult['available_currency_codes']);
         // Verify we obtain a cache HIT at the 3rd time
         $secondStoreResponseHit = $this->assertCacheHitAndReturnResponse(
             $query,
@@ -226,7 +226,7 @@ class CurrencyCacheTest extends GraphQLPageCacheAbstract
         );
         $this->assertArrayHasKey('currency', $secondStoreResponseHit['body']);
         $secondStoreResponseHitResult = $secondStoreResponseHit['body']['currency'];
-        $this->assertEquals(['CNY','USD'], $secondStoreResponseHitResult['available_currency_codes']);
+        $this->assertEquals(['CNY', 'USD'], $secondStoreResponseHitResult['available_currency_codes']);
     }
 
     /**
@@ -316,7 +316,7 @@ class CurrencyCacheTest extends GraphQLPageCacheAbstract
             ]
         );
         $this->assertEquals(
-            ['CNY','USD'],
+            ['CNY', 'USD'],
             $secondStoreResponseMiss['body']['currency']['available_currency_codes']
         );
         // Verify we obtain a cache HIT at the 3rd time
@@ -338,7 +338,7 @@ class CurrencyCacheTest extends GraphQLPageCacheAbstract
             ]
         );
         $this->assertEquals(
-            ['CNY','USD'],
+            ['CNY', 'USD'],
             $thirdStoreResponseMiss['body']['currency']['available_currency_codes']
         );
         // Verify we obtain a cache HIT at the 3rd time
@@ -425,7 +425,7 @@ class CurrencyCacheTest extends GraphQLPageCacheAbstract
             $query,
             [CacheIdCalculator::CACHE_ID_HEADER => $defaultStoreCacheId]
         );
-        $this->assertEquals(['CNY','USD'], $defaultStoreResponseMiss['body']['currency']['available_currency_codes']);
+        $this->assertEquals(['CNY', 'USD'], $defaultStoreResponseMiss['body']['currency']['available_currency_codes']);
         // Verify we obtain a cache HIT at the 3rd time
         $this->assertCacheHitAndReturnResponse(
             $query,
@@ -441,7 +441,7 @@ class CurrencyCacheTest extends GraphQLPageCacheAbstract
                 'Store' => $secondStoreCode
             ]
         );
-        $this->assertEquals(['CNY','USD'], $secondStoreResponseMiss['body']['currency']['available_currency_codes']);
+        $this->assertEquals(['CNY', 'USD'], $secondStoreResponseMiss['body']['currency']['available_currency_codes']);
         // Verify we obtain a cache HIT at the 3rd time
         $this->assertCacheHitAndReturnResponse(
             $query,
@@ -460,7 +460,7 @@ class CurrencyCacheTest extends GraphQLPageCacheAbstract
                 'Store' => $thirdStoreCode
             ]
         );
-        $this->assertEquals(['CNY','USD'], $thirdStoreResponseMiss['body']['currency']['available_currency_codes']);
+        $this->assertEquals(['CNY', 'USD'], $thirdStoreResponseMiss['body']['currency']['available_currency_codes']);
         // Verify we obtain a cache HIT at the 3rd time
         $this->assertCacheHitAndReturnResponse(
             $query,
@@ -673,7 +673,8 @@ QUERY;
         string  $value,
         string  $scopeType,
         ?string $scopeCode = null
-    ): void {
+    ): void
+    {
         if ($this->configStorage->checkIsRecordExist($path, $scopeType, $scopeCode)) {
             $this->origConfigs[] = [
                 'path' => $path,

@@ -67,7 +67,7 @@ class UserResetPasswordEmailTest extends AbstractBackendController
      * @var CoreConfig
      */
     protected $resourceConfig;
-    
+
     /**
      * @var \Magento\Framework\Mail\MessageInterfaceFactory
      */
@@ -132,8 +132,8 @@ class UserResetPasswordEmailTest extends AbstractBackendController
     /**
      * Test admin email notification after password change
      *
-     * @throws LocalizedException
      * @return void
+     * @throws LocalizedException
      */
     #[
         DataFixture(UserDataFixture::class, ['role_id' => 1], 'user')
@@ -165,8 +165,8 @@ class UserResetPasswordEmailTest extends AbstractBackendController
             'area' => Area::AREA_FRONTEND,
             'store' => \Magento\Store\Model\Store::DEFAULT_STORE_ID
         ])
-        ->addTo($adminEmail)
-        ->getTransport();
+            ->addTo($adminEmail)
+            ->getTransport();
 
         $message = $transportBuilderMock->getSentMessage();
 
@@ -228,7 +228,7 @@ class UserResetPasswordEmailTest extends AbstractBackendController
         $this->assertSessionMessages(
             $this->equalTo(
                 ['We received too many requests for password resets.'
-                . ' Please wait and try again later or contact hello@example.com.']
+                    . ' Please wait and try again later or contact hello@example.com.']
             ),
             MessageInterface::TYPE_ERROR
         );
@@ -245,7 +245,7 @@ class UserResetPasswordEmailTest extends AbstractBackendController
             $sendMessage
         );
     }
-    
+
     /**
      * @return void
      * @throws LocalizedException
@@ -331,7 +331,7 @@ class UserResetPasswordEmailTest extends AbstractBackendController
             $this->assertSessionMessages(
                 $this->equalTo(
                     ['We received too many requests for password resets.'
-                    . ' Please wait and try again later or contact hello@example.com.']
+                        . ' Please wait and try again later or contact hello@example.com.']
                 ),
                 MessageInterface::TYPE_ERROR
             );

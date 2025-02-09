@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                task_signup_history_listing.task_signup_history_listing_data_source
+            </item>
+        </item>
+        <item name="buttons" xsi:type="array">
+            <item name="change_form_status" xsi:type="array">
+                <item name="name" xsi:type="string">change_form_status</item>
+                <item name="label" xsi:type="string" translate="true">Change Form Status</item>
+                <item name="url" xsi:type="string">signup/history/change</item>
+                <item name="class" xsi:type="string">primary</item>
+            </item>
+        </item>
+    </argument>
+    <settings>
+        <deps>
+            <dep>task_signup_history_listing.task_signup_history_listing_data_source</dep>
+        </deps>
+        <spinner>task_signup_history_columns</spinner>
+    </settings>
+    <dataSource name="task_signup_history_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+        </settings>
+        <aclResource>Task_Signup::history</aclResource>
+        <dataProvider name="task_signup_history_listing_data_source"
+                      class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <paging name="listing_paging"/>
+        <filters name="filters"/>
+        <filterSearch name="fullText"/>
+    </listingToolbar>
+    <columns name="task_signup_history_columns">
+        <column name="id">
+            <settings>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="name">
+            <settings>
+                <label translate="true">Name</label>
+            </settings>
+        </column>
+        <column name="date" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <label translate="true">Date</label>
+                <filter>dateRange</filter>
+            </settings>
+        </column>
+    </columns>
+</listing>

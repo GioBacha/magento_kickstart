@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Task_Signup::signup"
+            title="Signup"
+            translate="title"
+            module="Task_Signup"
+            resource="Task_Signup::signup"
+            parent="Magento_Catalog::catalog"
+            sortOrder="900"
+        />
+        <add
+            id="Task_Signup::history"
+            title="Histories"
+            translate="title"
+            module="Task_Signup"
+            resource="Task_Signup::history"
+            parent="Task_Signup::signup"
+            action="signup/history"
+        />
+    </menu>
+</config>

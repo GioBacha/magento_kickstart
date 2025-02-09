@@ -1,0 +1,25 @@
+{
+    "signup_table": {
+        "column": {
+            "id": true,
+            "name": true,
+            "date": true
+        },
+        "index": {
+            "SIGNUP_TABLE_NAME": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "form_status": {
+        "column": {
+            "id": true,
+            "status": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FORM_STATUS_ID": true
+        }
+    }
+}

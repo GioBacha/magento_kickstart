@@ -954,7 +954,8 @@ QUERY;
         string  $value,
         string  $scopeType,
         ?string $scopeCode = null
-    ): void {
+    ): void
+    {
         if ($this->configStorage->checkIsRecordExist($path, $scopeType, $scopeCode)) {
             $this->origConfigs[] = [
                 'path' => $path,

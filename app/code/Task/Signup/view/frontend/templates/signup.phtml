@@ -1,0 +1,12 @@
+<?php /* @var $block Task\Signup\Block\Signup */ ?>
+
+
+<?php if ($block->isFormEnabled()): ?>
+    <form method="post" action="<?php echo $block->getUrl('*/*/save'); ?>" class="mb-4">
+        <input type="text" name="name" placeholder="Name" required/><br/>
+        <input type="date" name="date" required/><br/>
+        <button type="submit">Submit</button>
+    </form>
+<?php else: ?>
+    <p>Form not enabled</p>
+<?php endif; ?>

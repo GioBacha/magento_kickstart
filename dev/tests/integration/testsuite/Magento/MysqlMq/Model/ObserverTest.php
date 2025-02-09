@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\MysqlMq\Model;
 
 class ObserverTest extends \PHPUnit\Framework\TestCase

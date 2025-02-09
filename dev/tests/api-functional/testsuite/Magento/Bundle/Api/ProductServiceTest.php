@@ -320,7 +320,6 @@ class ProductServiceTest extends WebapiAbstract
             'bundle1'
         ),
     ]
-
     public function testUpdateBundleProductOptionsTitleOnStoreView(): void
     {
         $this->cleanUpOnTearDown = false;
@@ -595,7 +594,7 @@ class ProductServiceTest extends WebapiAbstract
     {
         if (isset($product['custom_attributes'])) {
             $count = count($product['custom_attributes']);
-            for ($i=0; $i < $count; $i++) {
+            for ($i = 0; $i < $count; $i++) {
                 if ($product['custom_attributes'][$i]['attribute_code'] == 'category_ids'
                     && !is_array($product['custom_attributes'][$i]['value'])
                 ) {

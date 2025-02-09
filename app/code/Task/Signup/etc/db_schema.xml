@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="signup_table" engine="innodb" comment="Signup">
+        <column name="id" xsi:type="int" padding="10" unsigned="true" nullable="false" identity="true" comment="Id"/>
+        <column name="name" xsi:type="text" nullable="false" comment="Name"/>
+        <column name="date" xsi:type="datetime" nullable="false" default="CURRENT_TIMESTAMP" on_update="true"
+                comment="Date"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="TASK_SIGNUP_HISTORY_NAME" indexType="fulltext">
+            <column name="name"/>
+        </index>
+    </table>
+    <table name="form_status" engine="innodb" comment="Form Status">
+        <column name="id" xsi:type="int" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column name="status" xsi:type="boolean" nullable="false" default="1"
+                comment="Form Status (1 = Enabled, 0 = Disabled)"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="UNIQUE_RECORD">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

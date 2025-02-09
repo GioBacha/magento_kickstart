@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Customer\Block\Adminhtml\Edit\Tab;
 
 use Magento\Customer\Api\CustomerRepositoryInterface;
@@ -133,7 +134,7 @@ class ViewTest extends \PHPUnit\Framework\TestCase
             'email@email.com'
         );
         $data = ['account' => $this->_dataObjectProcessor
-            ->buildOutputDataArray($customer, \Magento\Customer\Api\Data\CustomerInterface::class), ];
+            ->buildOutputDataArray($customer, \Magento\Customer\Api\Data\CustomerInterface::class),];
         $this->_context->getBackendSession()->setCustomerData($data);
         return $customer;
     }
@@ -146,7 +147,7 @@ class ViewTest extends \PHPUnit\Framework\TestCase
         /** @var \Magento\Customer\Api\Data\CustomerInterface $customer */
         $customer = $this->_customerRepository->getById(1);
         $data = ['account' => $this->_dataObjectProcessor
-            ->buildOutputDataArray($customer, \Magento\Customer\Api\Data\CustomerInterface::class), ];
+            ->buildOutputDataArray($customer, \Magento\Customer\Api\Data\CustomerInterface::class),];
         $this->_context->getBackendSession()->setCustomerData($data);
         $this->_coreRegistry->register(RegistryConstants::CURRENT_CUSTOMER_ID, $customer->getId());
         return $customer;

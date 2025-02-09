@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Quote\Model;
 
 use Magento\Catalog\Test\Fixture\Product as ProductFixture;
@@ -173,7 +174,7 @@ class ShippingMethodManagementTest extends TestCase
         $this->assertEquals($expectedResult['method_code'], $rate->getMethodCode());
         $this->assertEquals($expectedResult['amount'], $rate->getAmount());
     }
-    
+
     /**
      * @magentoDataFixture Magento/SalesRule/_files/cart_rule_100_percent_off.php
      * @magentoDataFixture Magento/Sales/_files/quote_with_customer.php
