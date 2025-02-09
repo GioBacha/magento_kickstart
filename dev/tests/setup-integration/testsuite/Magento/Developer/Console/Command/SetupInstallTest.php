@@ -88,7 +88,7 @@ class SetupInstallTest extends SetupTestCase
                 . DIRECTORY_SEPARATOR
                 . \Magento\Framework\Module\Dir::MODULE_ETC_DIR
                 . DIRECTORY_SEPARATOR
-                . 'db_schema.xml';
+                . 'db_schema.xml.xml';
             $generatedSchema = $this->getSchemaDocument($schemaFileName);
 
             $expectedSchemaFileName = dirname(__DIR__, 2)
@@ -99,7 +99,7 @@ class SetupInstallTest extends SetupTestCase
                         '_files',
                         'SetupInstall',
                         str_replace('Magento_', '', $moduleName),
-                        'db_schema.xml'
+                        'db_schema.xml.xml'
                     ]
                 );
             $expectedSchema = $this->getSchemaDocument($expectedSchemaFileName);

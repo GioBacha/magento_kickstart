@@ -57,7 +57,7 @@ class ValidationRulesTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule8',
             'invalid_primary_key',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
 
@@ -81,7 +81,7 @@ class ValidationRulesTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule8',
             'incosistence_reference_definition',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->schemaConfig->getDeclarationConfig();
@@ -104,7 +104,7 @@ class ValidationRulesTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule8',
             'inconsistent_reference_type_definition',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->schemaConfig->getDeclarationConfig();
@@ -124,7 +124,7 @@ class ValidationRulesTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule8',
             'invalid_auto_increment',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->schemaConfig->getDeclarationConfig();

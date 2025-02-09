@@ -1,0 +1,38 @@
+<?php /* @var $block Task\Weather\Block\Weather */ ?>
+
+<div id="weather_app" class="container py-4">
+    <h2 class="mb-4 text-center">Weather in Your City</h2>
+
+    <!-- City Input Form -->
+    <form method="post" action="<?php echo $block->getUrl('*/*/search'); ?>" class="mb-4">
+        <div class="form-group">
+            <label for="city" class="form-label">City *</label>
+            <input type="text" id="city" name="city"
+                   class="form-control"
+                   value="<?php echo $block->getCity(); ?>"
+                   placeholder="Enter city name" required>
+        </div>
+        <button type="submit" class="primary">Submit</button>
+    </form>
+
+    <?php if ($block->hasWeatherData()): ?>
+        <div class="weather-info">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>City:</strong> <?php echo $block->getCity(); ?></li>
+                <li class="list-group-item"><strong>Country:</strong> <?php echo $block->getCountry(); ?></li>
+                <li class="list-group-item"><strong>Description:</strong> <?php echo $block->getDescription(); ?></li>
+                <li class="list-group-item"><strong>Temperature (°C):</strong> <?php echo $block->getTemperature(); ?>
+                </li>
+                <li class="list-group-item"><strong>Feels Like (°C):</strong> <?php echo $block->getFeelsLike(); ?></li>
+                <li class="list-group-item"><strong>Pressure (hPa):</strong> <?php echo $block->getPressure(); ?></li>
+                <li class="list-group-item"><strong>Humidity (%):</strong> <?php echo $block->getHumidity(); ?></li>
+                <li class="list-group-item"><strong>Wind Speed
+                        (meter/sec):</strong> <?php echo $block->getWindSpeed(); ?></li>
+                <li class="list-group-item"><strong>Sunrise (UTC):</strong> <?php echo $block->getSunrise(); ?></li>
+                <li class="list-group-item"><strong>Sunset (UTC):</strong> <?php echo $block->getSunset(); ?></li>
+                <li class="list-group-item"><strong>Checked On(UTC):</strong> <?php echo $block->getCheckOn(); ?></li>
+            </ul>
+        </div>
+    <?php endif; ?>
+
+</div>

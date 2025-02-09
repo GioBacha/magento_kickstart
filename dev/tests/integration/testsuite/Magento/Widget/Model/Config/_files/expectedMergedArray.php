@@ -68,7 +68,7 @@ return [
                         'value' => 'product/widget/new/column/new_images_list.phtml',
                         'label' => 'New Products Images Only Template',
                     ],
-                    'default_template' => ['value' => 'widget/guest/form.phtml', 'label' => 'Default Template'],
+                    'default_template' => ['value' => 'widget/guest/weather.phtml', 'label' => 'Default Template'],
                 ],
                 'visible' => '0',
                 'required' => '1',

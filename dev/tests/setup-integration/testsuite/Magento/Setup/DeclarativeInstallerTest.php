@@ -119,7 +119,7 @@ class DeclarativeInstallerTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'column_modifications',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
 
@@ -136,7 +136,7 @@ class DeclarativeInstallerTest extends SetupTestCase
     }
 
     /**
-     * Updates revision for db_schema and db_schema_whitelist files
+     * Updates revision for db_schema.xml and db_schema_whitelist files
      *
      * @param string $revisionName
      */
@@ -146,7 +146,7 @@ class DeclarativeInstallerTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             $revisionName,
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         //Move InstallSchema file and tried to install
@@ -230,11 +230,11 @@ class DeclarativeInstallerTest extends SetupTestCase
             ['Magento_TestSetupDeclarationModule1']
         );
 
-        //Move db_schema.xml file and tried to install
+        //Move db_schema.xml.xml file and tried to install
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'drop_table',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
 
@@ -263,7 +263,7 @@ class DeclarativeInstallerTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule3',
             'drop_table_with_external_dependency',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
 
@@ -295,11 +295,11 @@ class DeclarativeInstallerTest extends SetupTestCase
      */
     public function testInstallWithCodeBaseRollback()
     {
-        //Move db_schema.xml file and tried to install
+        //Move db_schema.xml.xml file and tried to install
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'before_rollback',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->cliCommand->install(
@@ -311,11 +311,11 @@ class DeclarativeInstallerTest extends SetupTestCase
         }
         $beforeRollback = $this->describeTable->describeShard('default');
         self::assertEquals($this->getTrimmedData()['before'], $beforeRollback);
-        //Move db_schema.xml file and tried to install
+        //Move db_schema.xml.xml file and tried to install
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'after_rollback',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
 
@@ -332,11 +332,11 @@ class DeclarativeInstallerTest extends SetupTestCase
     public function testTableRename()
     {
         $dataToMigrate = ['some_column' => 'Some Value'];
-        //Move db_schema.xml file and tried to install
+        //Move db_schema.xml.xml file and tried to install
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'table_rename',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->cliCommand->install(
@@ -351,11 +351,11 @@ class DeclarativeInstallerTest extends SetupTestCase
         $this->isUsingAuroraDb() ?
             $this->assertStringContainsString($before['some_table'], $this->getTrimmedData()['before']) :
             $this->assertEquals($this->getData()['before'], $before['some_table']);
-        //Move db_schema.xml file and tried to install
+        //Move db_schema.xml.xml file and tried to install
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'table_rename_after',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
 
@@ -381,7 +381,7 @@ class DeclarativeInstallerTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule8',
             'unpatterned_fk_name',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->cliCommand->upgrade();
@@ -407,13 +407,13 @@ class DeclarativeInstallerTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'index_to_disable',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule8',
             'disable_index_by_external_module',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->moduleManager->updateRevision(
@@ -455,7 +455,7 @@ class DeclarativeInstallerTest extends SetupTestCase
             $this->moduleManager->updateRevision(
                 $moduleName,
                 'disabling_tables',
-                'db_schema.xml',
+                'db_schema.xml.xml',
                 'etc'
             );
         }

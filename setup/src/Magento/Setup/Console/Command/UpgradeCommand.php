@@ -70,12 +70,13 @@ class UpgradeCommand extends AbstractSetupCommand
      * @param CacheInterface|null $cache
      */
     public function __construct(
-        InstallerFactory $installerFactory,
+        InstallerFactory    $installerFactory,
         SearchConfigFactory $searchConfigFactory,
-        DeploymentConfig $deploymentConfig = null,
-        AppState $appState = null,
-        CacheInterface $cache = null
-    ) {
+        DeploymentConfig    $deploymentConfig = null,
+        AppState            $appState = null,
+        CacheInterface      $cache = null
+    )
+    {
         $this->installerFactory = $installerFactory;
         $this->searchConfigFactory = $searchConfigFactory;
         $this->deploymentConfig = $deploymentConfig ?: ObjectManager::getInstance()->get(DeploymentConfig::class);
@@ -102,7 +103,7 @@ class UpgradeCommand extends AbstractSetupCommand
                 InstallCommand::CONVERT_OLD_SCRIPTS_KEY,
                 null,
                 InputOption::VALUE_OPTIONAL,
-                'Allows to convert old scripts (InstallSchema, UpgradeSchema) to db_schema.xml format',
+                'Allows to convert old scripts (InstallSchema, UpgradeSchema) to db_schema.xml.xml format',
                 false
             ),
             new InputOption(

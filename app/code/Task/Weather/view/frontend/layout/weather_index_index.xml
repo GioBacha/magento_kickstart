@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block name="task_weather_listing" class="Task\Weather\Block\Weather"
+                   template="Task_Weather::weather.phtml"/>
+            <block name="task_weather_history" class="Task\Weather\Block\History"
+                   template="Task_Weather::history.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

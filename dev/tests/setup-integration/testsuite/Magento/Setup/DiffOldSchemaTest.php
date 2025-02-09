@@ -59,11 +59,11 @@ class DiffOldSchemaTest extends SetupTestCase
      */
     public function testOldDiff()
     {
-        //Move db_schema.xml
+        //Move db_schema.xml.xml
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'old_diff_before',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         //Move InstallSchema file and tried to install
@@ -74,11 +74,11 @@ class DiffOldSchemaTest extends SetupTestCase
             'Setup'
         );
         $this->cliCommad->install(['Magento_TestSetupDeclarationModule1']);
-        //Move db_schema.xml
+        //Move db_schema.xml.xml
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'old_diff',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $declarativeSchema = $this->schemaConfig->getDeclarationConfig();
@@ -107,7 +107,7 @@ class DiffOldSchemaTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'old_diff_before',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->moduleManager->updateRevision(
@@ -120,11 +120,11 @@ class DiffOldSchemaTest extends SetupTestCase
             ['Magento_TestSetupDeclarationModule1'],
             ['db-prefix' => $dbPrefix]
         );
-        //Move db_schema.xml
+        //Move db_schema.xml.xml
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'base_update',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $declarativeSchema = $this->schemaConfig->getDeclarationConfig();

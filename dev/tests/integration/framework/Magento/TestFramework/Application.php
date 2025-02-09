@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\TestFramework;
 
 use Magento\Framework\App\DeploymentConfig;
@@ -179,15 +180,16 @@ class Application
      */
     public function __construct(
         \Magento\Framework\Shell $shell,
-        $installDir,
-        $installConfigFile,
-        $globalConfigFile,
-        $globalConfigDir,
-        $appMode,
-        AutoloaderInterface $autoloadWrapper,
-        $loadTestExtensionAttributes = false,
-        $postInstallSetupCommandsFile = null
-    ) {
+                                 $installDir,
+                                 $installConfigFile,
+                                 $globalConfigFile,
+                                 $globalConfigDir,
+                                 $appMode,
+        AutoloaderInterface      $autoloadWrapper,
+                                 $loadTestExtensionAttributes = false,
+                                 $postInstallSetupCommandsFile = null
+    )
+    {
         if (getcwd() != BP . '/dev/tests/integration') {
             // phpcs:ignore Magento2.Functions.DiscouragedFunction
             chdir(BP . '/dev/tests/integration');
@@ -330,7 +332,7 @@ class Application
     }
 
     /**
-     * Weather the application is installed or not.
+     * Weather_App the application is installed or not.
      *
      * @return bool
      */
@@ -364,7 +366,7 @@ class Application
                             'filePath' => $this->installDir
                         ]
                     ),
-                    'debug'  => $objectManager->create(
+                    'debug' => $objectManager->create(
                         \Magento\Framework\Logger\Handler\Debug::class,
                         ['filePath' => $this->installDir]
                     ),
@@ -647,7 +649,7 @@ class Application
     private function copyAppConfigFiles()
     {
         $globalConfigFiles = Glob::glob(
-            $this->_globalConfigDir . '/{di.xml,*/di.xml,db_schema.xml,vendor_path.php}',
+            $this->_globalConfigDir . '/{di.xml,*/di.xml,db_schema.xml.xml,vendor_path.php}',
             Glob::GLOB_BRACE
         );
         foreach ($globalConfigFiles as $file) {
@@ -745,7 +747,7 @@ class Application
             // phpcs:ignore Magento2.Functions.DiscouragedFunction
             mkdir($dir, 0777, true);
             umask($old);
-        // phpcs:ignore Magento2.Functions.DiscouragedFunction
+            // phpcs:ignore Magento2.Functions.DiscouragedFunction
         } elseif (!is_dir($dir)) {
             throw new \Magento\Framework\Exception\LocalizedException(__("'%1' is not a directory.", $dir));
         }

@@ -109,7 +109,7 @@ class BCMultiModuleTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule7',
             'swap_with_declaration',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->moduleManager->updateRevision(
@@ -136,7 +136,7 @@ class BCMultiModuleTest extends SetupTestCase
         self::assertTrue($this->dbVersionInfo->isDataUpToDate('Magento_TestSetupDeclarationModule7'));
         self::assertTrue($this->dbVersionInfo->isSchemaUpToDate('Magento_TestSetupDeclarationModule7'));
         self::assertEquals(
-            [6,12],
+            [6, 12],
             $this->tableData->describeTableData('reference_table', 'bigint_without_padding')
         );
     }
@@ -154,7 +154,7 @@ class BCMultiModuleTest extends SetupTestCase
         self::assertTrue($this->dbVersionInfo->isDataUpToDate('Magento_TestSetupDeclarationModule7'));
         self::assertTrue($this->dbVersionInfo->isSchemaUpToDate('Magento_TestSetupDeclarationModule7'));
         self::assertEquals(
-            [6,12],
+            [6, 12],
             $this->tableData->describeTableData('reference_table', 'bigint_without_padding')
         );
         self::assertEquals(
@@ -214,7 +214,8 @@ class BCMultiModuleTest extends SetupTestCase
         string $indexName,
         string $constraintName,
         string $foreignKeyName
-    ) {
+    )
+    {
         $this->cliCommand->install(
             [
                 'Magento_TestSetupDeclarationModule1'

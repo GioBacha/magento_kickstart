@@ -66,11 +66,11 @@ class SafeInstallerTest extends SetupTestCase
             array_keys($row),
             $this->getData()
         );
-        //Move new db_schema.xml
+        //Move new db_schema.xml.xml
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule4',
             'remove_title_column',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->cliCommand->upgrade(
@@ -78,11 +78,11 @@ class SafeInstallerTest extends SetupTestCase
                 'safe-mode' => true,
             ]
         );
-        //Move new db_schema.xml with restored title field
+        //Move new db_schema.xml.xml with restored title field
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule4',
             'restore_title_column',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->cliCommand->upgrade(
@@ -107,7 +107,7 @@ class SafeInstallerTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule6',
             'remove_fk_declaration',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->moduleManager->updateRevision(

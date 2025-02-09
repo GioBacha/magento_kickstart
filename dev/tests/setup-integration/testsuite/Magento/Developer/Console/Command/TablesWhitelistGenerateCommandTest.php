@@ -86,7 +86,7 @@ class TablesWhitelistGenerateCommandTest extends SetupTestCase
             $this->moduleManager->updateRevision(
                 $moduleName,
                 'whitelist_upgrade',
-                'db_schema.xml',
+                'db_schema.xml.xml',
                 'etc'
             );
         }

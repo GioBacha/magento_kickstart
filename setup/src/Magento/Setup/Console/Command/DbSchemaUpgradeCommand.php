@@ -60,7 +60,7 @@ class DbSchemaUpgradeCommand extends AbstractSetupCommand
                         InstallCommand::CONVERT_OLD_SCRIPTS_KEY,
                         null,
                         InputOption::VALUE_OPTIONAL,
-                        'Allows to convert old scripts (InstallSchema, UpgradeSchema) to db_schema.xml format',
+                        'Allows to convert old scripts (InstallSchema, UpgradeSchema) to db_schema.xml.xml format',
                         false
                     )
                 ]

@@ -1,0 +1,44 @@
+<?php /* @var $block Task\Weather\Block\History */ ?>
+
+<form method="get" action="<?php echo $block->getUrl('*/*/history'); ?>" class="mb-4">
+    <h3>Weather Historical Data
+        <button type="submit" class="primary">Print All</button>
+    </h3>
+</form>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>City</th>
+        <th>Country</th>
+        <th>Description</th>
+        <th>Temperature (°C)</th>
+        <th>Feels Like (°C)</th>
+        <th>Pressure (hPa)</th>
+        <th>Humidity (%)</th>
+        <th>Wind Speed (meter/sec)</th>
+        <th>Sunrise (UTC)</th>
+        <th>Sunset (UTC)</th>
+        <th>Checked On</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($block->patchData() as $record): ?>
+
+        <tr>
+            <td><?php echo $record['city']; ?></td>
+            <td><?php echo $record['country']; ?></td>
+            <td><?php echo $record['description']; ?></td>
+            <td><?php echo $record['temperature']; ?></td>
+            <td><?php echo $record['feels_like']; ?></td>
+            <td><?php echo $record['pressure']; ?></td>
+            <td><?php echo $record['humidity']; ?></td>
+            <td><?php echo $record['wind_speed']; ?></td>
+            <td><?php echo $record['sunrise']; ?></td>
+            <td><?php echo $record['sunset']; ?></td>
+            <td><?php echo $record['checked_on']; ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+

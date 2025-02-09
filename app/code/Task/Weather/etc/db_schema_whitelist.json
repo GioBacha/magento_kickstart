@@ -1,0 +1,21 @@
+{
+    "devall_weather_history": {
+        "column": {
+            "id": true,
+            "city": true,
+            "country": true,
+            "description": true,
+            "temperature": true,
+            "feels_like": true,
+            "pressure": true,
+            "humidity": true,
+            "wind_speed": true,
+            "sunrise": true,
+            "sunset": true,
+            "checked_on": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

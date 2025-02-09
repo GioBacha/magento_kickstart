@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Sales\Block\Adminhtml\Order\Create\Billing\Method;
 
 use Magento\Framework\ObjectManagerInterface;
@@ -43,7 +44,7 @@ class FormTest extends \PHPUnit\Framework\TestCase
     {
         /** @var Form $block */
         $block = $this->layout->createBlock(Form::class, 'order_billing_method');
-        $block->setTemplate('Magento_Sales::order/create/billing/method/form.phtml');
+        $block->setTemplate('Magento_Sales::order/create/billing/method/weather.phtml');
 
         $html = $block->toHtml();
         $this->assertStringContainsString('mage.apply()', $html);

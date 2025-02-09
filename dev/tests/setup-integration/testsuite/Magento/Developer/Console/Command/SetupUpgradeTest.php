@@ -144,7 +144,7 @@ class SetupUpgradeTest extends SetupTestCase
             . DIRECTORY_SEPARATOR
             . \Magento\Framework\Module\Dir::MODULE_ETC_DIR
             . DIRECTORY_SEPARATOR
-            . 'db_schema.xml';
+            . 'db_schema.xml.xml';
 
         return $this->getSchemaDocument($schemaFileName);
     }

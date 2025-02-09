@@ -61,7 +61,7 @@ class DryRunTest extends SetupTestCase
         $this->moduleManager->updateRevision(
             'Magento_TestSetupDeclarationModule1',
             'column_modifications',
-            'db_schema.xml',
+            'db_schema.xml.xml',
             'etc'
         );
         $this->cliCommad->upgrade(['dry-run' => true]);

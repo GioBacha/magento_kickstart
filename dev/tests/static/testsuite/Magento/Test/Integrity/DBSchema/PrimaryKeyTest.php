@@ -43,7 +43,7 @@ class PrimaryKeyTest extends TestCase
                         );
                 }
                 $errorMessage .= 'Table ' . $tableName . ' does not have primary key. ' . $message . "\n";
-                $failedTableCtr ++;
+                $failedTableCtr++;
             }
         }
         if (!empty($errorMessage)) {
@@ -94,7 +94,7 @@ class PrimaryKeyTest extends TestCase
         $declarations = [];
         foreach (Files::init()->getDbSchemaFiles() as $filePath) {
             $filePath = reset($filePath);
-            preg_match('#/(\w+/\w+)/etc/db_schema.xml#', $filePath, $result);
+            preg_match('#/(\w+/\w+)/etc/db_schema.xml.xml#', $filePath, $result);
             $moduleName = str_replace('/', '_', $result[1]);
             $moduleDeclaration = $this->getDbSchemaDeclarationByFile($filePath);
 

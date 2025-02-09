@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\TestFramework\Deploy;
 
 use Magento\Framework\App\ObjectManager;
@@ -17,12 +18,12 @@ class TestModuleManager
     /**
      * Name of file of DB XML declaration.
      */
-    const DECLARATIVE_FILE_NAME = "db_schema.xml";
+    const DECLARATIVE_FILE_NAME = "db_schema.xml.xml";
 
     /**
      * Add test module files to Magento code base.
      *
-     * @param  string $moduleName
+     * @param string $moduleName
      * @return void
      * @throws \RuntimeException
      */
@@ -88,10 +89,10 @@ class TestModuleManager
     /**
      * Update module version.
      *
-     * @param string $moduleName   Like Magento_TestSetupModule
-     * @param string $revisionName Folder name, like reviisions/revision_1/db_schema.xml
-     * @param string $fileName     For example db_schema.xml
-     * @param string $fileDir      For example etc or Setup
+     * @param string $moduleName Like Magento_TestSetupModule
+     * @param string $revisionName Folder name, like reviisions/revision_1/db_schema.xml.xml
+     * @param string $fileName For example db_schema.xml.xml
+     * @param string $fileDir For example etc or Setup
      */
     public function updateRevision($moduleName, $revisionName, $fileName, $fileDir)
     {
@@ -120,7 +121,7 @@ class TestModuleManager
     /**
      * Remove test module files to Magento code base.
      *
-     * @param  string $moduleName
+     * @param string $moduleName
      * @return void
      */
     public function removeModuleFiles($moduleName)
@@ -152,7 +153,7 @@ class TestModuleManager
     /**
      * Update module files.
      *
-     * @param  string $moduleName
+     * @param string $moduleName
      * @return void
      */
     public function updateModuleFiles($moduleName)

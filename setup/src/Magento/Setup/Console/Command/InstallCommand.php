@@ -60,7 +60,7 @@ class InstallCommand extends AbstractSetupCommand
 
     /**
      * If this flag is enabled, than all your old scripts with format:
-     * InstallSchema, UpgradeSchema will be converted to new db_schema.xml format.
+     * InstallSchema, UpgradeSchema will be converted to new db_schema.xml.xml format.
      */
     public const CONVERT_OLD_SCRIPTS_KEY = 'convert-old-scripts';
 
@@ -131,12 +131,13 @@ class InstallCommand extends AbstractSetupCommand
      * @param SearchConfigOptionsList $searchConfigOptionsList
      */
     public function __construct(
-        InstallerFactory $installerFactory,
-        ConfigModel $configModel,
+        InstallerFactory                 $installerFactory,
+        ConfigModel                      $configModel,
         InstallStoreConfigurationCommand $userConfig,
-        AdminUserCreateCommand $adminUser,
-        SearchConfigOptionsList $searchConfigOptionsList
-    ) {
+        AdminUserCreateCommand           $adminUser,
+        SearchConfigOptionsList          $searchConfigOptionsList
+    )
+    {
         $this->installerFactory = $installerFactory;
         $this->configModel = $configModel;
         $this->userConfig = $userConfig;
@@ -191,7 +192,7 @@ class InstallCommand extends AbstractSetupCommand
                 self::CONVERT_OLD_SCRIPTS_KEY,
                 null,
                 InputOption::VALUE_OPTIONAL,
-                'Allows to convert old scripts (InstallSchema, UpgradeSchema) to db_schema.xml format',
+                'Allows to convert old scripts (InstallSchema, UpgradeSchema) to db_schema.xml.xml format',
                 false
             ),
             new InputOption(
@@ -292,11 +293,11 @@ class InstallCommand extends AbstractSetupCommand
      * @param InputInterface $input
      * @return string[] Array of error messages
      */
-    public function validate(InputInterface $input) : array
+    public function validate(InputInterface $input): array
     {
         $errors = [];
         $value = $input->getOption(self::INPUT_KEY_SALES_ORDER_INCREMENT_PREFIX);
-        if (preg_match(self::SALES_ORDER_INCREMENT_PREFIX_RULE, (string) $value) != 1) {
+        if (preg_match(self::SALES_ORDER_INCREMENT_PREFIX_RULE, (string)$value) != 1) {
             $errors[] = 'Validation failed, ' . self::INPUT_KEY_SALES_ORDER_INCREMENT_PREFIX
                 . ' must be 20 characters or less';
         }
@@ -312,7 +313,7 @@ class InstallCommand extends AbstractSetupCommand
      * @param OutputInterface $output
      * @return string[] Array of inputs
      */
-    private function interactiveQuestions(InputInterface $input, OutputInterface $output) : array
+    private function interactiveQuestions(InputInterface $input, OutputInterface $output): array
     {
         $helper = $this->getHelper('question');
         $configOptionsToValidate = [];
@@ -374,12 +375,13 @@ class InstallCommand extends AbstractSetupCommand
      * @return string[] Array of inputs
      */
     private function askQuestion(
-        InputInterface $input,
+        InputInterface  $input,
         OutputInterface $output,
-        QuestionHelper $helper,
-        $option,
-        $validateInline = false
-    ) {
+        QuestionHelper  $helper,
+                        $option,
+                        $validateInline = false
+    )
+    {
         if ($option instanceof \Magento\Framework\Setup\Option\SelectConfigOption) {
             if ($option->isValueRequired()) {
                 $question = new ChoiceQuestion(

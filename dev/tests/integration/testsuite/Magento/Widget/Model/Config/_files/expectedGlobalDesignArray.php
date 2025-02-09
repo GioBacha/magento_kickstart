@@ -72,7 +72,7 @@ return [
             'template' => [
                 'type' => 'select',
                 'values' => [
-                    'default_template' => ['value' => 'widget/guest/form.phtml', 'label' => 'Default Template'],
+                    'default_template' => ['value' => 'widget/guest/weather.phtml', 'label' => 'Default Template'],
                 ],
                 'visible' => '0',
             ],
